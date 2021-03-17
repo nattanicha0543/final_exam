@@ -8,12 +8,12 @@ const Showimg = ({ id }) => {
     console.log(id)  //เอาไอดีออกมาดู
     console.log(urlimg) //เอารูปออกมาดูว่ามากี่รูป
     useEffect(() => {
-        axios.get(urlimg)
+        axios.get(urlimg) //ตัวเชื่อม api จากบรรทัดที่ 6
             .then((response) => {
-                setImg(response.data); //เก็บค่าไว้ที่ setImg
+                setImg(response.data); //เก็บค่าไว้ที่ img
                 console.log(response.data) //เอาค่าออกมาดู
             })
-    }, [id]);
+    }, [id]);  //คือค่าที่รับเข้ามา ให้มันทำซ้ำถ้ามีการเปลี่ยนแปลงจากไอดี
 
     return (
         <>

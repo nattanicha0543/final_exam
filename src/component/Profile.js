@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 const Profile = ({ id }) => {
-    const [result, setResult] = useState([])
-    const clientId = "knkx6tDpdUwiVTOq8XG6XnNlxkute8kpk0I6rEC1q0k"
-    const urlacc = "https://api.unsplash.com/search/users?page=1&query=" + id + "&client_id=" + clientId;
+    const [result, setResult] = useState([]) 
+    const clientId = "knkx6tDpdUwiVTOq8XG6XnNlxkute8kpk0I6rEC1q0k" //aserkey ของอันสแปส
+    const urlacc = "https://api.unsplash.com/search/users?page=1&query=" + id + "&client_id=" + clientId; //ตั้งตัวแปล รับไอดีที่พอบมา 
+
     useEffect(() => {
         axios.get(urlacc)  //ตัวเชื่อม api จากบรรทัดที่ 6
             .then((response) => {
-                setResult(response.data.results);   //เก็บค่าไว้ที่ setResult
+                setResult(response.data.results);   //เก็บค่าไว้ที่ result
                 console.log(response.data.results)
             })
-       }, [id]); 
+       }, [id]); //คือค่าที่รับเข้ามา ให้มันทำซ้ำถ้ามีการเปลี่ยนแปลงจากไอดี
 
     return (
         <>
